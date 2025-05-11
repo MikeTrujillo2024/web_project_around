@@ -1,49 +1,57 @@
-.profile{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 40px 0;
-   width: 100%;
-   max-height: 120px;
-
-  /*  border: 1px solid red */
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 40px 0;
+  width: 100%;
+  max-height: 120px;
+  border: 1px solid red;
 }
 
-.profile__image{
-    max-width: 120px;
-    max-height: 120px;
-    border-radius: 50%;
+.profile__image {
+  max-width: 120px;
+  max-height: 120px;
+  border-radius: 50%;
 }
 
-.profile__info{
-    display: flex;
-    flex-flow: row wrap;
+.profile__info {
+  max-width: 415px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
 }
 
-.profile__info--name{
-    margin: 0;
-    font-size: 40px;
-    line-height: 48px;
-
+.profile__info--name {
+  margin: 0;
+  font-size: 42px;
+  line-height: 48px;
+  grid-column: 1 / 6;
+  align-self: flex-end;
 }
 
-.profile__info--edit_button{
-    width: 24px;
-    height: 24px;
-    background-color: black;
-    background-image: url("../images/editButton.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: 1px solid white;
-    order: 3;
-   
+.profile__info--edit_button {
+  width: 24px;
+  height: 24px;
+  background-color: black;
+  background-image: url("../images/editButton.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid white;
+  align-self: end;
 }
 
-.profile__info-button_add{
-    width: 150px;
-    height: 50px;
-    margin: auto 0;
-    background-color: transparent;
-    color: white;
-    border: 1px solid white;
+.profile__info-button_add {
+  width: 150px;
+  height: 50px;
+  margin: auto 0;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.profile__about {
+  margin: 0;
+  font-size: 18px;
+  line-height: 100%;
 }
