@@ -24,7 +24,6 @@
 
 .place__card_content{
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
     
     
@@ -34,7 +33,9 @@ color: black;
 font-weight: 900;
 line-height: 100%;
 align-self: flex-end;
-/* margin-top: 25px; */
+text-overflow: ellipsis;
+white-space: nowrap;
+  overflow: hidden;
 }
 
 .place__card_content_imgBottom{
