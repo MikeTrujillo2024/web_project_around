@@ -54,3 +54,39 @@
   font-size: 18px;
   line-height: 100%;
 }
+
+
+@media screen and (max-width: 768px) {
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 42px auto;
+    max-width: 282px;
+    max-height: 286px;
+  }
+
+  .profile__info {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr) 30px;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    justify-content: center;
+    align-content: center;
+  }
+  
+  .profile__info--name {
+    margin: 0;
+    font-size: 22px;
+    line-height: 100%;
+    grid-column: 1 / 2;
+    align-self: flex-end;
+  }
+
+  .profile__info-button_add {
+    width: 100%;
+  }
+  
+}

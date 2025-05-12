@@ -1,6 +1,12 @@
-.content{
-    margin: 0 auto;
-    max-width: 880px;
-    height: auto;
-    /* border: 1px solid red; */
+.content {
+  margin: 0 auto;
+  max-width: 880px;
+  height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    width: auto;
+    max-width: 768px;
+  }
 }
