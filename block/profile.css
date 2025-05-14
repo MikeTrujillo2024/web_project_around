@@ -57,18 +57,12 @@
 
 .profile__info--edit_button:hover {
   cursor: pointer;
-  -moz-transform: scale(1.5);
-  -webkit-transform: scale(1.5);
-  -o-transform: scale(1.5);
-  -ms-transform: scale(1.5);
-  transform: scale(1.5);
+ opacity: 0.6;
 }
 
 .profile__info-button_add:hover {
-  
-  background-color: white;
-  color: #000;
-  border: 1px solid gray;
+  cursor: pointer;
+ opacity: 0.6;
 }
 
 @media screen and (max-width: 768px) {

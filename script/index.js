@@ -2,36 +2,24 @@
 
 const openFormButton = document.querySelector(".content");
 const getinfo = openFormButton.querySelector(".profile__info--edit_button");
-const closeModalButton = document.querySelector(".popup");
-
+const closeModalButton = document.querySelector(".popup__button-cancel");
+let formElement = document.querySelector(".popup__container"); 
+let nameProfile = document.querySelector(".profile__info--name");
+let puesto = document.querySelector(".profile__about");
 /* open modal */
-function deleteClass(nombre,puesto) {
+function deleteClass() {
   const classModal = document.querySelector(".popup_opened");
   let nameModal = classModal.querySelector(".popup__content-name");
   let aboutModal = classModal.querySelector(".popup__content-about");
 
-  nameModal.value=nombre;
-  aboutModal.value=puesto;
+
+  nameModal.value=nameProfile.textContent;
+  aboutModal.value=puesto.textContent;
 
   classModal.classList.remove("popup_opened");
 }
 
-
-
-function getinfoCostumer() {
-  let name = document.querySelector(".profile__info--name");
-  let puesto = document.querySelector(".profile__about");
-
-  if(name.textContent.length != 0 && puesto.textContent.length != 0){
-    deleteClass(name.textContent,puesto.textContent);
-
-  }else{
-    alert("Error con el nombre");
-  }
-}
-
-
-getinfo.addEventListener("click", getinfoCostumer);
+getinfo.addEventListener("click", deleteClass);
 
 /* close modal */
 function closeModal(){
@@ -43,6 +31,19 @@ function closeModal(){
   classModal.classList.add("popup_opened");
 }
 
-
 closeModalButton.addEventListener("click",closeModal);
 
+function handleProfileFormSubmit(evt){
+  evt.preventDefault();
+  
+  let nameInput = formElement.querySelector(".popup__content-name");
+  let jobInput = formElement.querySelector(".popup__content-about");
+  
+
+  nameProfile.textContent = nameInput.value ;
+  puesto.textContent = jobInput.value  ;
+
+  closeModal();
+  
+}
+formElement.addEventListener('submit',handleProfileFormSubmit);
