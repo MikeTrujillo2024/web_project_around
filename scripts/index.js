@@ -1,10 +1,10 @@
 // script.js
 
 const openFormButton = document.querySelector(".content");
-const getinfo = openFormButton.querySelector(".profile__info--edit_button");
+const getinfo = openFormButton.querySelector(".profile__info_edit_button");
 const closeModalButton = document.querySelector(".popup__button-cancel");
 let formElement = document.querySelector(".popup__container"); 
-let nameProfile = document.querySelector(".profile__info--name");
+let nameProfile = document.querySelector(".profile__name");
 let puesto = document.querySelector(".profile__about");
 /* open modal */
 function deleteClass() {

@@ -1,51 +1,60 @@
-.place{
-    max-width: 880px;
-    height: 743px;
-    margin-top: 50px;    
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap:17px ; 
-    justify-content: center;                    
+.place {
+  max-width: 880px;
+  height: auto;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 17px;
+  justify-content: center;
 }
 
-.place__card{
-    width: 282px;
-    height: 361px;
-    border-radius: 10px;
-    background-color: #E5E5E5;
-    
+.place__card {
+  width: 282px;
+  height: 361px;
+  border-radius: 10px;
+  background-color: #e5e5e5;
 }
 
-.place__card_image{
-    width: 100%;
-    height: 282px;
+.place__card_image {
+  width: 100%;
+  height: 282px;
 }
 
-.place__card_content{
-    display: flex;
-    flex-direction: row;
-    
-    
+.place__card_content {
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  
 }
-.place__card_content_text{
-color: black;
-font-weight: 900;
-line-height: 100%;
-align-self: flex-end;
-text-overflow: ellipsis;
-white-space: nowrap;
+.place__card_content_text {
+  white-space: nowrap;
+  width: 100%;
   overflow: hidden;
+  text-overflow: ellipsis; 
+  color: black;
+  font-weight: 900;
+  line-height: 100%;
+  margin: auto auto 31px 21px;
 }
 
-.place__card_content_imgBottom{
-    text-decoration:none;
-   background-color: transparent;
+.place__card_content_like {
+  position: relative;
+  width: 21px;
+  height: 19px;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  margin: auto 18px 30px auto;
+}
+.place__card_content_imgBottom {
+  width: 100%;
+  height: 100%;
 }
 
-@media screen and (max-width:768px){
-    .place{
-        max-width: 768px;
-        height: auto;                 
-    }
+@media screen and (max-width: 768px) {
+  .place {
+    max-width: 768px;
+    height: auto;
+  }
 }
