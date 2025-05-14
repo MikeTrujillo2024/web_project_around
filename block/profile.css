@@ -55,9 +55,17 @@
   line-height: 100%;
 }
 
+.profile__info--edit_button:hover {
+  cursor: pointer;
+ opacity: 0.6;
+}
+
+.profile__info-button_add:hover {
+  cursor: pointer;
+ opacity: 0.6;
+}
 
 @media screen and (max-width: 768px) {
-
   .profile {
     display: flex;
     flex-direction: column;
@@ -76,7 +84,7 @@
     justify-content: center;
     align-content: center;
   }
-  
+
   .profile__info--name {
     margin: 0;
     font-size: 22px;
@@ -88,5 +96,4 @@
   .profile__info-button_add {
     width: 100%;
   }
-  
 }
