@@ -55,9 +55,23 @@
   line-height: 100%;
 }
 
+.profile__info--edit_button:hover {
+  cursor: pointer;
+  -moz-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+}
+
+.profile__info-button_add:hover {
+  
+  background-color: white;
+  color: #000;
+  border: 1px solid gray;
+}
 
 @media screen and (max-width: 768px) {
-
   .profile {
     display: flex;
     flex-direction: column;
@@ -76,7 +90,7 @@
     justify-content: center;
     align-content: center;
   }
-  
+
   .profile__info--name {
     margin: 0;
     font-size: 22px;
@@ -88,5 +102,4 @@
   .profile__info-button_add {
     width: 100%;
   }
-  
 }
