@@ -22,6 +22,10 @@
 }
 
 .profile__name {
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin: 0;
   font-size: 42px;
   line-height: 48px;
@@ -47,10 +51,14 @@
   background-color: transparent;
   color: white;
   border: 1px solid white;
-  
+
 }
 
 .profile__about {
+ /*  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;  */
   margin: 0;
   font-size: 18px;
   line-height: 100%;
@@ -58,12 +66,12 @@
 
 .profile__info_edit_button:hover {
   cursor: pointer;
- opacity: 0.6;
+  opacity: 0.6;
 }
 
 .profile__info-button-add:hover {
   cursor: pointer;
- opacity: 0.6;
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 768px) {
@@ -87,6 +95,10 @@
   }
 
   .profile__name {
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin: 0;
     font-size: 22px;
     line-height: 100%;

@@ -10,7 +10,36 @@
   </head>
   <body>
     <div class="page">
-      <div class="popup popup_opened ">
+      <div class="popup popup_opened" id="popup-places">
+      <div class="popup__wrap">
+        <button class="popup__button-cancel">+</button>
+        <form class="popup__container">
+          <fieldset class="popup__content" id="FormCard">
+            <h1 class="popup__content-title">Nuevo Lugar</h1>
+            <input
+              class="popup__input popup__content-name"
+              type="text"
+              name="name"
+              placeholder="Nombre"
+              id="input__popup_name"
+              required
+            />
+            <input
+              class="popup__input popup__content-about"
+              type="text"
+              name="about"
+              placeholder="Acerca de mi"
+              id="input_popup_about"
+              required
+            />
+          </fieldset>
+          <fieldset class="popup__content popup__button">
+            <button type="submit" class="popup__content-save">Guardar</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+      <div class="popup popup_opened" id="popup-profile">
         <div class="popup__wrap">
           <button class="popup__button-cancel">+</button>
           <form class="popup__container">
@@ -55,72 +84,38 @@
           />
           <div class="profile__info">
             <p class="profile__name">Jacques Cousteau</p>
-            <button type="button" class="profile__info profile__info_edit_button"></button>
+            <button
+              type="button"
+              class="profile__info profile__info_edit_button"
+            ></button>
             <span class="profile__info profile__about">Explorador</span>
           </div>
-          <button type="button" class="profile__inf profile__info-button-add">+</button>
+          <button type="button" class="profile__inf profile__info-button-add">
+            +
+          </button>
         </section>
-        <section class="place">
-          <div class="place__card">
-            <img src="images/placesImage1.jpg" alt="image place image1" class="place__card place__card_image"/>
-            <div class="place__card place__card_content">
-              <p class="place__card place__card_content_text">Valle de Yosemite</p>
-              <button type="button" class="place__card place__card_content_like" >
-                <img src="images/likeButton.svg" alt="like button" class="place__card place__card_content_imgBottom" />
-              </button>
-            </div>
-          </div>
-          <div class="place__card">
-            <img src="images/placesImage2.png" alt="image place image1" class="place__card place__card_image"/>
-            <div class="place__card place__card_content">
-              <p class="place__card place__card_content_text">Lago Louise</p>
-              <button type="button" class="place__card place__card_content_like" >
-                <img src="images/likeButton.svg" alt="like button" class="place__card place__card_content_imgBottom" />
-              </button>
-            </div>
-          </div>
-          <div class="place__card">
-            <img src="images/placesImage3.png" alt="image place image1" class="place__card place__card_image"/>
-            <div class="place__card place__card_content">
-              <p class="place__card place__card_content_text">Montañas Calvas</p>
-              <button type="button" class="place__card place__card_content_like" >
-                <img src="images/likeButton.svg" alt="like button" class="place__card place__card_content_imgBottom" />
-              </button>
-            </div>
-          </div>
-          <div class="place__card">
-            <img src="images/placesImage4.png" alt="image place image1" class="place__card place__card_image"/>
-            <div class="place__card place__card_content">
-              <p class="place__card place__card_content_text">latemar</p>
-              <button type="button" class="place__card place__card_content_like" >
-                <img src="images/likeButton.svg" alt="like button" class="place__card place__card_content_imgBottom" />
-              </button>
-            </div>
-          </div>
-          <div class="place__card">
-            <img src="images/placesImage5.png" alt="image place image1" class="place__card place__card_image"/>
-            <div class="place__card place__card_content">
-              <p class="place__card place__card_content_text">Vanoise Nacional Park</p>
-              <button type="button" class="place__card place__card_content_like" >
-                <img src="images/likeButton.svg" alt="like button" class="place__card place__card_content_imgBottom" />
-              </button>
-            </div>
-          </div>
-          <div class="place__card">
-            <img src="images/placesImage6.png" alt="image place image1" class="place__card place__card_image"/>
-            <div class="place__card place__card_content">
-              <p class="place__card place__card_content_text">Lago di Brailes</p>
-              <button type="button" class="place__card place__card_content_like" >
-                <img src="images/likeButton.svg" alt="like button" class="place__card place__card_content_imgBottom" />
-              </button>
-            </div>
-          </div>
-        </section>
+        <section class="place" id="place"></section>
       </main>
       <footer class="footer">
         <p>@ 2025 Around The U.S.</p>
       </footer>
     </div>
+    
+    <template id="card-template">
+      <div class="place__card">
+        <img src="" alt="" class="place__card place__card_image" />
+        <div class="place__card place__card_content">
+          <p class="place__card place__card_content_text"></p>
+          <button type="button" class="place__card place__card_content_like">
+            <img
+              src="images/likeButton.svg"
+              alt="like button"
+              class="place__card place__card_content_imgBottom"
+            />
+          </button>
+        </div>
+      </div>
+    </template>
     <script src="scripts/index.js"></script>
   </body>
 </html>
