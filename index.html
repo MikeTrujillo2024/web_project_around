@@ -12,29 +12,29 @@
     <div class="page">
       <div class="popup popup_opened" id="popup-places">
       <div class="popup__wrap">
-        <button class="popup__button-cancel">+</button>
-        <form class="popup__container">
+        <button class="popup__button-cancel" id="popup__button-cancelForm">+</button>
+        <form class="popup__container" id="popup__container-addCard">
           <fieldset class="popup__content" id="FormCard">
             <h1 class="popup__content-title">Nuevo Lugar</h1>
             <input
               class="popup__input popup__content-name"
               type="text"
-              name="name"
-              placeholder="Nombre"
-              id="input__popup_name"
+              name="titulo"
+              placeholder="Titulo"
+              id="input__popup_titulo"
               required
             />
             <input
               class="popup__input popup__content-about"
-              type="text"
-              name="about"
-              placeholder="Acerca de mi"
-              id="input_popup_about"
+              type="url"
+              name="url"
+              placeholder="Enlace a la imagen"
+              id="iinputlink"
               required
             />
           </fieldset>
           <fieldset class="popup__content popup__button">
-            <button type="submit" class="popup__content-save">Guardar</button>
+            <button type="submit" class="popup__content-save" id="create">Guardar</button>
           </fieldset>
         </form>
       </div>

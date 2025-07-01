@@ -1,10 +1,11 @@
 // script.js
 
 const openFormButton = document.querySelector(".content");
+
 const getinfo = openFormButton.querySelector(".profile__info_edit_button");
 const popupProfile = document.querySelector("#popup-profile");
 const closeModalButton = popupProfile.querySelector(".popup__button-cancel");
-const formElement = popupProfile.querySelector(".popup__container"); 
+const formElement = popupProfile.querySelector(".popup__container");
 let nameProfile = document.querySelector(".profile__name");
 let aboutProfile = document.querySelector(".profile__about");
 const cardSection = document.querySelector("#place");
@@ -13,40 +14,49 @@ const templeteCard = document.querySelector("#card-template");
 const nameInfo = popupProfile.querySelector(".popup__content-name");
 const aboutInfo = popupProfile.querySelector(".popup__content-about");
 
+/* popup card */
+const buttonAddCard = document.querySelector(".profile__info-button-add");
+const popupAddCard = document.querySelector("#popup-places");
+const saveButtonAddCard = popupAddCard.querySelector("#create");
+const inputTituloCard = popupAddCard.querySelector("#input__popup_titulo");
+const inputUrlCard = popupAddCard.querySelector("#iinputlink");
+const closeCancelButtonAddCard = popupAddCard.querySelector("#popup__button-cancelForm");
 /* creamos array para mostrar las card en la pagina principal */
 const initialCards = [
   {
     name: "Valle de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg"
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
   },
   {
     name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg"
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
   },
   {
     name: "Montañas Calvas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg"
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
   },
   {
     name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg"
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
   },
   {
     name: "Parque Nacional de la Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg"
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
   },
   {
     name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
-  }
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
+  },
 ];
 
-initialCards.forEach(function(item){
-  crearCard(item.name,item.link);
-})
+initialCards.forEach(function (item) {
+  crearCard(item.name, item.link);
+});
 /* function que servira para crear los elemnetos de card  */
-function crearCard(name,link){
-  const card = templeteCard.content.querySelector(".place__card").cloneNode(true);
+function crearCard(name, link) {
+  const card = templeteCard.content
+    .querySelector(".place__card")
+    .cloneNode(true);
 
   const cardName = card.querySelector(".place__card_content_text");
   cardName.textContent = name;
@@ -55,40 +65,57 @@ function crearCard(name,link){
   cardImage.src = link;
   cardImage.alt = `Imagen de ${name}`;
 
-
-cardSection.prepend(card);
+  cardSection.prepend(card);
 }
 
 /* open modal */
-function handleOpenProfilePopup() { 
-
-  nameInfo.value=nameProfile.textContent;
-  aboutInfo.value=aboutProfile.textContent;
- popupProfile.classList.remove("popup_opened");
+function handleOpenProfilePopup() {
+  nameInfo.value = nameProfile.textContent;
+  aboutInfo.value = aboutProfile.textContent;
+  popupProfile.classList.remove("popup_opened");
 }
 
-getinfo.addEventListener("click", handleOpenProfilePopup);
+function handleOpenFormPlacePopup() {
+  popupAddCard.classList.remove("popup_opened");
+}
 
+function handleCloseFormPlacePopup(){
+  popupAddCard.classList.add("popup_opened")
+}
+
+function handleSaveNewPlace(evt) {
+  evt.preventDefault();
+  const title = inputTituloCard.value;
+  const link = inputUrlCard.value;
+  crearCard(title,link);
+  inputTituloCard.value = "";
+  inputUrlCard.value = "";
+  handleCloseFormPlacePopup();
+}
 /* close modal */
-function closeModal(){
-  nameInfo.value='';
-  aboutInfo.value='';
+function closeModal() {
+  nameInfo.value = "";
+  aboutInfo.value = "";
   popupProfile.classList.add("popup_opened");
 }
 
-closeModalButton.addEventListener("click",closeModal);
-
-function handleProfileFormSubmit(evt){
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  
+
   let nameInput = formElement.querySelector(".popup__content-name");
   let jobInput = formElement.querySelector(".popup__content-about");
-  
 
-  nameProfile.textContent = nameInput.value ;
-  aboutProfile.textContent = jobInput.value  ;
+  nameProfile.textContent = nameInput.value;
+  aboutProfile.textContent = jobInput.value;
 
   closeModal();
-  
 }
-formElement.addEventListener('submit',handleProfileFormSubmit);
+
+formElement.addEventListener("submit", handleProfileFormSubmit);
+
+/* addevenlistener */
+getinfo.addEventListener("click", handleOpenProfilePopup);
+closeModalButton.addEventListener("click", closeModal);
+buttonAddCard.addEventListener("click", handleOpenFormPlacePopup);
+saveButtonAddCard.addEventListener("click", handleSaveNewPlace);
+closeCancelButtonAddCard.addEventListener("click",handleCloseFormPlacePopup);
