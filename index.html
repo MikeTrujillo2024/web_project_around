@@ -11,34 +11,38 @@
   <body>
     <div class="page">
       <div class="popup popup_opened" id="popup-places">
-      <div class="popup__wrap">
-        <button class="popup__button-cancel" id="popup__button-cancelForm">+</button>
-        <form class="popup__container" id="popup__container-addCard">
-          <fieldset class="popup__content" id="FormCard">
-            <h1 class="popup__content-title">Nuevo Lugar</h1>
-            <input
-              class="popup__input popup__content-name"
-              type="text"
-              name="titulo"
-              placeholder="Titulo"
-              id="input__popup_titulo"
-              required
-            />
-            <input
-              class="popup__input popup__content-about"
-              type="url"
-              name="url"
-              placeholder="Enlace a la imagen"
-              id="iinputlink"
-              required
-            />
-          </fieldset>
-          <fieldset class="popup__content popup__button">
-            <button type="submit" class="popup__content-save" id="create">Guardar</button>
-          </fieldset>
-        </form>
+        <div class="popup__wrap">
+          <button class="popup__button-cancel" id="popup__button-cancelForm">
+            +
+          </button>
+          <form class="popup__container" id="popup__container-addCard">
+            <fieldset class="popup__content" id="FormCard">
+              <h1 class="popup__content-title">Nuevo Lugar</h1>
+              <input
+                class="popup__input popup__content-name"
+                type="text"
+                name="titulo"
+                placeholder="Titulo"
+                id="input__popup_titulo"
+                required
+              />
+              <input
+                class="popup__input popup__content-about"
+                type="url"
+                name="url"
+                placeholder="Enlace a la imagen"
+                id="iinputlink"
+                required
+              />
+            </fieldset>
+            <fieldset class="popup__content popup__button">
+              <button type="submit" class="popup__content-save" id="create">
+                Guardar
+              </button>
+            </fieldset>
+          </form>
+        </div>
       </div>
-    </div>
       <div class="popup popup_opened" id="popup-profile">
         <div class="popup__wrap">
           <button class="popup__button-cancel">+</button>
@@ -66,6 +70,13 @@
               <button type="submit" class="popup__content-save">Guardar</button>
             </fieldset>
           </form>
+        </div>
+      </div>
+      <div class="popup popup_opened" id="popup-image">
+        <div class="popup__wrap">
+          <button class="popup__button-cancel" id="popup__button-cancel-imagen">+</button>
+          <img class="popup__img" src="">
+          <h2 class="popup__img-title"></h2>
         </div>
       </div>
       <header class="header">
@@ -100,19 +111,17 @@
         <p>@ 2025 Around The U.S.</p>
       </footer>
     </div>
-    
+
     <template id="card-template">
       <div class="place__card">
+        <button type="button" class="place__card_trash"></button>
         <img src="" alt="" class="place__card place__card_image" />
         <div class="place__card place__card_content">
           <p class="place__card place__card_content_text"></p>
-          <button type="button" class="place__card place__card_content_like">
-            <img
-              src="images/likeButton.svg"
-              alt="like button"
-              class="place__card place__card_content_imgBottom"
-            />
-          </button>
+          <button
+            type="button"
+            class="place__card place__card_content_like"
+          ></button>
         </div>
       </div>
     </template>
