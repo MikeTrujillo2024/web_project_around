@@ -90,11 +90,13 @@ function handleOpenProfilePopup() {
   nameInfo.value = nameProfile.textContent;
   aboutInfo.value = aboutProfile.textContent;
   popupProfile.classList.remove("popup_opened");
+  popupProfile.classList.add("mOpen");
 }
 
 /* open modal Imagen */
 function openPopupImagen(link, name){
   popupImagen.classList.remove("popup_opened");
+  popupImagen.classList.add("mOpen");
   srcImgPopup.src = link;
   srcImgPopup.alt = name;
   titleImgPopup.textContent = name;
@@ -104,11 +106,13 @@ function openPopupImagen(link, name){
 
 function handleOpenFormPlacePopup() {
   popupAddCard.classList.remove("popup_opened");
+  popupAddCard.classList.add("mOpen");
 }
 
 function handleClosePopup(){
+  /* console.log("cerrar") */
   popupAddCard.classList.add("popup_opened");
-  popupImagen.classList.add("popup_opened");
+  popupAddCard.classList.remove("mOpen");
 }
 
 function handleSaveNewPlace(evt) {
@@ -125,6 +129,8 @@ function closeModal() {
   nameInfo.value = "";
   aboutInfo.value = "";
   popupProfile.classList.add("popup_opened");
+  popupProfile.classList.remove("mOpen");
+  resetValidation();
 }
 
 function handleProfileFormSubmit(evt) {
@@ -148,4 +154,28 @@ buttonAddCard.addEventListener("click", handleOpenFormPlacePopup);
 saveButtonAddCard.addEventListener("click", handleSaveNewPlace);
 closeCancelButtonAddCard.addEventListener("click",handleClosePopup);
 closemodalImg.addEventListener("click",handleClosePopup);
+
+document.addEventListener("keydown",function(e){
+
+  if(e.key === "Escape"){
+    closeModal();
+    handleClosePopup();
+  }else if(e.key === "Enter"){
+    handleProfileFormSubmit;
+    handleSaveNewPlace
+
+  }
+});
+
+/* cerrar el modal click en cualquier parte del documento */
+document.addEventListener("click",function(e){
+  const popupclassMoladClose = e.target.classList;
+/*   console.log(popupclassMoladClose) */
+  
+
+  if(popupclassMoladClose.contains("mOpen")){
+    closeModal();
+    handleClosePopup();
+  } 
+})
 
