@@ -90,25 +90,37 @@ function handleOpenProfilePopup() {
   nameInfo.value = nameProfile.textContent;
   aboutInfo.value = aboutProfile.textContent;
   popupProfile.classList.remove("popup_opened");
+  popupProfile.classList.add("mOpen");
 }
 
 /* open modal Imagen */
 function openPopupImagen(link, name){
   popupImagen.classList.remove("popup_opened");
+  popupImagen.classList.add("mOpen");
   srcImgPopup.src = link;
   srcImgPopup.alt = name;
   titleImgPopup.textContent = name;
 }
 
+const closeModalAll = ((classIdModal)=>{
+ const classIdName = classIdModal;
+  classIdName.classList.add("popup_opened");
+  classIdName.classList.remove("mOpen");
+})
+
 /* close modal Imagen */
+function handleOpenImagePopup() {
+ closeModalAll(popupImagen);
+}
+/* open modal nwe form */
 
 function handleOpenFormPlacePopup() {
   popupAddCard.classList.remove("popup_opened");
+  popupAddCard.classList.add("mOpen");
 }
 
 function handleClosePopup(){
-  popupAddCard.classList.add("popup_opened");
-  popupImagen.classList.add("popup_opened");
+  closeModalAll(popupAddCard);
 }
 
 function handleSaveNewPlace(evt) {
@@ -124,7 +136,8 @@ function handleSaveNewPlace(evt) {
 function closeModal() {
   nameInfo.value = "";
   aboutInfo.value = "";
-  popupProfile.classList.add("popup_opened");
+  closeModalAll(popupProfile);
+  resetValidation();
 }
 
 function handleProfileFormSubmit(evt) {
@@ -147,5 +160,28 @@ closeModalButton.addEventListener("click", closeModal);
 buttonAddCard.addEventListener("click", handleOpenFormPlacePopup);
 saveButtonAddCard.addEventListener("click", handleSaveNewPlace);
 closeCancelButtonAddCard.addEventListener("click",handleClosePopup);
-closemodalImg.addEventListener("click",handleClosePopup);
+closemodalImg.addEventListener("click",handleOpenImagePopup);
+
+document.addEventListener("keydown",function(e){
+
+  if(e.key === "Escape"){
+    closeModal();
+    handleClosePopup();
+    handleOpenImagePopup();
+  }else if(e.key === "Enter"){
+    handleProfileFormSubmit;
+    handleSaveNewPlace
+    
+  }
+});
+
+/* cerrar el modal click en cualquier parte del documento */
+document.addEventListener("click",function(e){
+  const popupclassMoladClose = e.target.classList;
+  if(popupclassMoladClose.contains("mOpen")){
+    closeModal();
+    handleClosePopup();
+    handleOpenImagePopup();
+  } 
+})
 
