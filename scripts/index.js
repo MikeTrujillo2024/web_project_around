@@ -102,7 +102,17 @@ function openPopupImagen(link, name){
   titleImgPopup.textContent = name;
 }
 
+const closeModalAll = ((classIdModal)=>{
+ const classIdName = classIdModal;
+  classIdName.classList.add("popup_opened");
+  classIdName.classList.remove("mOpen");
+})
+
 /* close modal Imagen */
+function handleOpenImagePopup() {
+ closeModalAll(popupImagen);
+}
+/* open modal nwe form */
 
 function handleOpenFormPlacePopup() {
   popupAddCard.classList.remove("popup_opened");
@@ -110,9 +120,7 @@ function handleOpenFormPlacePopup() {
 }
 
 function handleClosePopup(){
-  /* console.log("cerrar") */
-  popupAddCard.classList.add("popup_opened");
-  popupAddCard.classList.remove("mOpen");
+  closeModalAll(popupAddCard);
 }
 
 function handleSaveNewPlace(evt) {
@@ -128,8 +136,7 @@ function handleSaveNewPlace(evt) {
 function closeModal() {
   nameInfo.value = "";
   aboutInfo.value = "";
-  popupProfile.classList.add("popup_opened");
-  popupProfile.classList.remove("mOpen");
+  closeModalAll(popupProfile);
   resetValidation();
 }
 
@@ -153,29 +160,28 @@ closeModalButton.addEventListener("click", closeModal);
 buttonAddCard.addEventListener("click", handleOpenFormPlacePopup);
 saveButtonAddCard.addEventListener("click", handleSaveNewPlace);
 closeCancelButtonAddCard.addEventListener("click",handleClosePopup);
-closemodalImg.addEventListener("click",handleClosePopup);
+closemodalImg.addEventListener("click",handleOpenImagePopup);
 
 document.addEventListener("keydown",function(e){
 
   if(e.key === "Escape"){
     closeModal();
     handleClosePopup();
+    handleOpenImagePopup();
   }else if(e.key === "Enter"){
     handleProfileFormSubmit;
     handleSaveNewPlace
-
+    
   }
 });
 
 /* cerrar el modal click en cualquier parte del documento */
 document.addEventListener("click",function(e){
   const popupclassMoladClose = e.target.classList;
-/*   console.log(popupclassMoladClose) */
-  
-
   if(popupclassMoladClose.contains("mOpen")){
     closeModal();
     handleClosePopup();
+    handleOpenImagePopup();
   } 
 })
 
