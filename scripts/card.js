@@ -1,11 +1,12 @@
+import { openPopupImagen } from "./utils.js";
 /**
  * Toma los datos de la tarjeta (tanto el texto como un enlace a la imagen) y un
  * selector de elemento de plantilla como parámetros en el constructor.
  */
 class Card {
   constructor(data, cardSelector) {
-    this._title = data[0].name;
-    this._link = data[0].link;
+    this._title = data.name;
+    this._link = data.link;
     this._cardSelector = cardSelector;
   }
 

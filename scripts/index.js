@@ -1,16 +1,4 @@
 import { Card } from "./Card.js";
-
-/* esta seccion va para utls.js pero en un momento las pasamos */
-/* open modal Imagen */
-const openPopupImagen=(link, name)=>{
-  popupImagen.classList.remove("popup_opened");
-  popupImagen.classList.add("mOpen");
-  srcImgPopup.src = link;
-  srcImgPopup.alt = name;
-  titleImgPopup.textContent = name;
-}
-/* termina utls.js */
-
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -38,7 +26,9 @@ const initialCards = [
   },
 ];
 
-const cardItem = new Card(initialCards,"#card-template");
-const cardElement = cardItem.getCreateCard();
+initialCards.forEach((items)=>{
+    const cardItem = new Card(items,"#card-template");
+    const cardElement = cardItem.getCreateCard();
 
-document.querySelector("#place").prepend(cardElement)
+    document.querySelector("#place").prepend(cardElement);
+})
