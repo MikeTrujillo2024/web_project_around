@@ -1,4 +1,9 @@
 import { Card } from "./Card.js";
+import { settingsValidator } from "./utils.js";
+import { FormValidator } from "./formvalidator.js";
+
+const formElements = document.querySelectorAll(settingsValidator.formSelector);
+const formValidators = [];
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -26,9 +31,17 @@ const initialCards = [
   },
 ];
 
-initialCards.forEach((items)=>{
-    const cardItem = new Card(items,"#card-template");
-    const cardElement = cardItem.getCreateCard();
+initialCards.forEach((items) => {
+  const cardItem = new Card(items, "#card-template");
+  const cardElement = cardItem.getCreateCard();
 
-    document.querySelector("#place").prepend(cardElement);
-})
+  document.querySelector("#place").prepend(cardElement);
+});
+
+formElements.forEach((formElement) => {
+  const formValid = new FormValidator(settingsValidator, formElement);
+  formValid.enableValidation();
+  formValidators.push(formValid);
+});
+/* const formVlid = new FormValidator(settingsValidator,formElements); */
+export {formValidators};
