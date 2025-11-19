@@ -71,19 +71,21 @@ const setEventListener = ((formElement)=>{
 
 
 const enableValidation = () => {
+  /* obtiene los formularios que se tengan con la clase popup__container */
   const formList = Array.from(
     document.querySelectorAll(".popup__container")
   );
-  formList.forEach((formElement) => {
-    /* console.log(settings.typeSubmit); */
-    formElement.addEventListener("submit", function (evt) {
-      evt.preventDefault();
-    });
 
+  formList.forEach((formElement) => {    
+    formElement.addEventListener("submit", function (evt) {
+       evt.preventDefault();
+      
+    } );
+
+    /* obtiene los contendores de los inputs y botones a validar */
     const fieldsetList = Array.from(formElement.querySelectorAll(".popup__content"));
-    /* console.log(fieldsetList); */
     fieldsetList.forEach((fieldSet)=>{
-        
+      
       setEventListener(fieldSet);
         })
   });
