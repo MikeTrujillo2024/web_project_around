@@ -1,4 +1,4 @@
-import { openPopupImagen } from "./utils.js";
+import { img } from "./utils.js";
 /**
  * Toma los datos de la tarjeta (tanto el texto como un enlace a la imagen) y un
  * selector de elemento de plantilla como parámetros en el constructor.
@@ -52,12 +52,13 @@ class Card {
    * metodod imgPopup
    * Este metodo sirve para mostra el popup al hacer click en la imagen
    */
-_imgPopup(){
-    this._element.querySelector(".place__card_image")
-    .addEventListener("click",()=>{
-        openPopupImagen(this._link,this._title);
-    })
-}
+  _imgPopup() {
+    this._element
+      .querySelector(".place__card_image")
+      .addEventListener("click", () => {
+        img(this._link, this._title);
+      });
+  }
 
   /**
    * este metodo justa los metodos privado
