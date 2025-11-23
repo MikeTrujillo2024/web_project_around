@@ -17,6 +17,8 @@ class FormValidator {
     );
 
     this._button = this._elment.querySelector(this._config.formbuttonSubmit);
+    
+    
   }
 
   /**
@@ -67,19 +69,18 @@ class FormValidator {
    *
    */
   _hasInvalidInput() {
-    return this._inputlist.some((inputElment) => {
+   return this._inputlist.some((inputElment) => {
       return !inputElment.validity.valid;
     });
   }
 
   _statebutton() {
-   /*  console.log(this._hasInvalidInput()); */
     if (this._hasInvalidInput()) {
-     /*  console.log("true aqui"); */
+    
       this._button.classList.add(this._config.inactiveButtonClass);
       this._button.setAttribute("disabled", "");
     } else {
-     /*  console.log("false alla"); */
+     
       this._button.classList.remove(this._config.inactiveButtonClass);
       this._button.removeAttribute("disabled");
     }
@@ -91,6 +92,7 @@ class FormValidator {
     this._inputlist.forEach((inputElementList) => {
       inputElementList.addEventListener("input", () => {
         this._checkInputValidity(inputElementList);
+        this._statebutton();
       });
     });
   }
@@ -99,6 +101,7 @@ class FormValidator {
    * obtenemos los submit de cada formulario
    */
   enableValidation() {
+    
      this._elment.addEventListener("submit", (evt) => {
       evt.preventDefault();
     });
