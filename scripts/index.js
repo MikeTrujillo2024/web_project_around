@@ -1,4 +1,4 @@
-import { Card } from "./Card.js";
+import { Card,CreateCard } from "./Card.js";
 import { settingsValidator } from "./utils.js";
 import { FormValidator } from "./formvalidator.js";
 
@@ -38,10 +38,18 @@ initialCards.forEach((items) => {
   document.querySelector("#place").prepend(cardElement);
 });
 
+const cardsAdd=(addData,selector)=>{
+  addData.forEach((element) => {
+    const newCard = new CreateCard(element,selector);
+    const elementNewCard = newCard.getCreateCard();
+    document.querySelector("#place").prepend(elementNewCard);
+  });
+}
+
 formElements.forEach((formElement) => {
   const formValid = new FormValidator(settingsValidator, formElement);
-  formValid.enableValidation();
+    formValid.enableValidation();
   formValidators.push(formValid);
 });
-/* const formVlid = new FormValidator(settingsValidator,formElements); */
-export {formValidators};
+
+export {formValidators, cardsAdd as add};
