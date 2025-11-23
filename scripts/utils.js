@@ -1,4 +1,5 @@
 import{ reset } from "./formvalidator.js";
+import { add } from "./index.js";
 /**
  * este objeto contiene las principales
  * selectores que usa para las validaciones
@@ -29,6 +30,9 @@ const aboutInfo = popupProfile.querySelector(".popup__content-about");
 const popupAddCard = document.querySelector("#popup-places");
 const buttonAddCard = document.querySelector(".profile__info-button-add");
 const closeCancelButtonAddCard = popupAddCard.querySelector("#popup__button-cancelForm");
+const saveButtonAddCard = popupAddCard.querySelector("#create");
+const namenewImg = popupAddCard.querySelector(".popup__content-name");
+const linknewImg = popupAddCard.querySelector(".popup__content-about");
 
 const popupImagen = document.querySelector("#popup-image");
 const srcImgPopup = popupImagen.querySelector(".popup__img");
@@ -57,6 +61,7 @@ const closeModalAll = (classIdModal) => {
   const classIdName = classIdModal;
   classIdName.classList.add("popup_opened");
   classIdName.classList.remove("mOpen");
+  reset(popupAddCard);
 };
 
 /* close modal */
@@ -77,12 +82,24 @@ function handleOpenImagePopup() {
   closeModalAll(popupImagen);
 }
 
-/* open modal nwe form */
+/* open modal new form */
 function handleOpenFormPlacePopup() {
   popupAddCard.classList.remove("popup_opened");
   popupAddCard.classList.add("mOpen");
 }
 
+/* cuando de  */
+ const handleSaveNewPlace =()=>{
+  const newImg = [
+    {
+    name: namenewImg.value,
+    link: linknewImg.value
+    }
+  ]
+
+  add(newImg,"#card-template");
+    handleClosePopup();
+}
 
 
 getinfo.addEventListener("click", handleOpenProfilePopup);
@@ -110,6 +127,9 @@ document.addEventListener("click", function (e) {
     handleOpenImagePopup();
   }
 });
+
+/* boton para crear otra card */
+saveButtonAddCard.addEventListener("click",handleSaveNewPlace)
 
 
 export { openPopupImagen as img,settingsValidator }
