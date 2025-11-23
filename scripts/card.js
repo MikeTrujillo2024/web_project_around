@@ -8,6 +8,7 @@ class Card {
     this._title = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
+    /* console.log(this._cardSelector); */
   }
 
   /**
@@ -77,7 +78,7 @@ class Card {
     this._setListener();
 
     this._element.querySelector(".place__card_image").src = this._link;
-    this._element.querySelector(".place__card_image").alt = this._link;
+    this._element.querySelector(".place__card_image").alt = this._title;
     this._element.querySelector(".place__card_content_text").textContent =
       this._title;
 
@@ -85,6 +86,17 @@ class Card {
   }
 }
 
-/* cardItem = new Card() */
+/**
+ * esta clase hereda de clase card que es donde se crean las card
+ * una vez que se da click en el boton de guardar del modal de crear 
+ * nuevo lugar
+ */
+class CreateCard extends Card{
+ constructor(data,selector){
+  super(data,selector);
+ }
+}
 
-export { Card };
+
+
+export { Card,CreateCard };
