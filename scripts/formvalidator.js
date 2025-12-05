@@ -1,11 +1,9 @@
 import { settingsValidator } from "./utils.js";
-import { formValidators } from "./index.js";
 /**
  * constructor que tiene dos parametros
  * el primero es un objeto de la configuracion que almacena los selectores y las clases del formulario
  * el segudo toma un elemento del formulario a validar
  */
-
 
 class FormValidator {
   constructor(configObj, formElemnt) {
@@ -17,8 +15,6 @@ class FormValidator {
     );
 
     this._button = this._elment.querySelector(this._config.formbuttonSubmit);
-    
-    
   }
 
   /**
@@ -52,7 +48,6 @@ class FormValidator {
    * momento que se esta escreibiendo
    */
   _checkInputValidity(inputElementList) {
-    /*  console.log(); */
     if (!inputElementList.validity.valid) {
       this._showInputError(
         inputElementList,
@@ -69,18 +64,16 @@ class FormValidator {
    *
    */
   _hasInvalidInput() {
-   return this._inputlist.some((inputElment) => {
+    return this._inputlist.some((inputElment) => {
       return !inputElment.validity.valid;
     });
   }
 
   _statebutton() {
     if (this._hasInvalidInput()) {
-    
       this._button.classList.add(this._config.inactiveButtonClass);
       this._button.setAttribute("disabled", "");
     } else {
-     
       this._button.classList.remove(this._config.inactiveButtonClass);
       this._button.removeAttribute("disabled");
     }
@@ -101,35 +94,12 @@ class FormValidator {
    * obtenemos los submit de cada formulario
    */
   enableValidation() {
-    
-     this._elment.addEventListener("submit", (evt) => {
+    this._elment.addEventListener("submit", (evt) => {
       evt.preventDefault();
     });
 
     this._setEventListener();
   }
-
-  resetValidation(){
-    this._inputlist.forEach((inputElment)=>{
-      this._hideInputError(inputElment);
-      inputElment.value="";
-    });
-    this._statebutton();
-  };
 }
 
-const resetValidation = (modal)=>{
-  const formElments = modal.querySelectorAll(settingsValidator.formSelector);
-  formElments.forEach((formElment)=>{
-    formElment.reset();
-    const formValidator = formValidators.find(
-      (validator) => validator._formElement === formElment
-    );
-    if (formValidator) {
-      formValidator.resetValidation();
-    }
-  })
-}
-
-
-export { FormValidator, resetValidation as reset };
+export { FormValidator };
