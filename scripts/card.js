@@ -8,7 +8,6 @@ class Card {
     this._title = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
-    /* console.log(this._cardSelector); */
   }
 
   /**
@@ -88,15 +87,13 @@ class Card {
 
 /**
  * esta clase hereda de clase card que es donde se crean las card
- * una vez que se da click en el boton de guardar del modal de crear 
+ * una vez que se da click en el boton de guardar del modal de crear
  * nuevo lugar
  */
-class CreateCard extends Card{
- constructor(data,selector){
-  super(data,selector);
- }
+class CreateCard extends Card {
+  constructor(data, selector) {
+    super(data, selector);
+  }
 }
 
-
-
-export { Card,CreateCard };
+export { Card, CreateCard };
