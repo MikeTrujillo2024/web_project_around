@@ -60,12 +60,14 @@
                 type="text"
                 name="name__user"
                 placeholder="Nombre"
-                id="input__popup_name"
+                id="input__popup_name_Editar"
                 minlength="2"
                 maxlength="40"
                 required
               />
-              <span class="form__input_error input__popup_name-error"></span>
+              <span
+                class="form__input_error input__popup_name_Editar-error"
+              ></span>
               <input
                 class="popup__input popup__content-about"
                 type="text"
@@ -87,7 +89,7 @@
           <button class="popup__button-cancel" id="popup__button-cancel-imagen">
             +
           </button>
-          <img class="popup__img" src="" />
+          <img class="popup__img" src=" " alt="Empty Image" />
           <h2 class="popup__img-title"></h2>
         </div>
       </div>
@@ -127,7 +129,11 @@
     <template id="card-template">
       <div class="place__card">
         <button type="button" class="place__card_trash"></button>
-        <img src="" alt="" class="place__card place__card_image" />
+        <img
+          src=" "
+          alt="image card place"
+          class="place__card place__card_image"
+        />
         <div class="place__card place__card_content">
           <p class="place__card place__card_content_text"></p>
           <button
