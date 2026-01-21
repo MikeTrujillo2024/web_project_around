@@ -1,3 +1,4 @@
+import Section  from "./Section.js";
 import { Card } from "./Card.js";
 import { settingsValidator } from "./utils.js";
 import { FormValidator } from "./FormValidator.js";
@@ -34,14 +35,25 @@ const initialCards = [
   },
 ];
 
-initialCards.forEach((items) => {
+const cardList = new Section(
+  {
+  items:initialCards,
+  renderer: (item)=>{
+    const cardItem = new Card(item,"#card-template");
+    cardList.addItem(cardItem.getCreateCard());
+  }
+},"#place");
+
+cardList.rendererItems();
+
+/* initialCards.forEach((items) => {
   const cardItem = new Card(items, "#card-template");
   const cardElement = cardItem.getCreateCard();
 
   document.querySelector("#place").prepend(cardElement);
-});
+}); */
 
-formElements.forEach((formElement) => {
+/* formElements.forEach((formElement) => {
   const formValid = new FormValidator(settingsValidator, formElement);
   formValid.enableValidation();
-});
+}); */

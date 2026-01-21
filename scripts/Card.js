@@ -71,6 +71,7 @@ class Card {
 
   /**
    * aqui es donde creamos los card
+   * hasta este momento esta construido cada elemenmto pero no esta visible en el dom
    */
   getCreateCard() {
     this._element = this._getTemplate();
