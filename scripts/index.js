@@ -1,12 +1,13 @@
 import Section  from "./Section.js";
 import { Card } from "./Card.js";
-import { settingsValidator } from "./utils.js";
+import PopupWithImage from "./PopupWithImage.js";
+/* import { settingsValidator } from "./utils.js"; */
 import { FormValidator } from "./FormValidator.js";
 
 /**
  * constiene todods los fiormularios
  */
-const formElements = document.querySelectorAll(settingsValidator.formSelector);
+/* const formElements = document.querySelectorAll(settingsValidator.formSelector); */
 
 const initialCards = [
   {
@@ -35,16 +36,31 @@ const initialCards = [
   },
 ];
 
+/***
+ * hacemos que se muestra los popup de imagenes
+ */
+const popupImage = new PopupWithImage("#popup-image");
+popupImage.setEventListeners();
+
+const handleCardClick = (link,name) =>{
+  popupImage.open(link,name)
+}
+/**
+ * mostramos los card desde un principio
+ */
+
+
 const cardList = new Section(
   {
   items:initialCards,
   renderer: (item)=>{
-    const cardItem = new Card(item,"#card-template");
+    const cardItem = new Card(item,"#card-template",handleCardClick);
     cardList.addItem(cardItem.getCreateCard());
   }
 },"#place");
 
 cardList.rendererItems();
+
 
 /* initialCards.forEach((items) => {
   const cardItem = new Card(items, "#card-template");
