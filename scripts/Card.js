@@ -1,13 +1,14 @@
-import { img } from "./utils.js";
+/* import { img } from "./utils.js"; */
 /**
  * Toma los datos de la tarjeta (tanto el texto como un enlace a la imagen) y un
  * selector de elemento de plantilla como parámetros en el constructor.
  */
 class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector,handleCardClick) {
     this._title = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   /**
@@ -56,7 +57,7 @@ class Card {
     this._element
       .querySelector(".place__card_image")
       .addEventListener("click", () => {
-        img(this._link, this._title);
+        this._handleCardClick(this._link, this._title);
       });
   }
 
@@ -79,8 +80,7 @@ class Card {
 
     this._element.querySelector(".place__card_image").src = this._link;
     this._element.querySelector(".place__card_image").alt = this._title;
-    this._element.querySelector(".place__card_content_text").textContent =
-      this._title;
+    this._element.querySelector(".place__card_content_text").textContent = this._title; 
 
     return this._element;
   }
