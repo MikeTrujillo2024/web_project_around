@@ -1,10 +1,9 @@
-/* import { img } from "./utils.js"; */
 /**
  * Toma los datos de la tarjeta (tanto el texto como un enlace a la imagen) y un
  * selector de elemento de plantilla como parámetros en el constructor.
  */
-class Card {
-  constructor(data, cardSelector,handleCardClick) {
+export default class Card {
+  constructor(data, cardSelector, handleCardClick) {
     this._title = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
@@ -80,21 +79,12 @@ class Card {
 
     this._element.querySelector(".place__card_image").src = this._link;
     this._element.querySelector(".place__card_image").alt = this._title;
-    this._element.querySelector(".place__card_content_text").textContent = this._title; 
+    this._element.querySelector(".place__card_content_text").textContent = this._title;
 
     return this._element;
   }
+
 }
 
-/**
- * esta clase hereda de clase card que es donde se crean las card
- * una vez que se da click en el boton de guardar del modal de crear
- * nuevo lugar
- */
-class CreateCard extends Card {
-  constructor(data, selector) {
-    super(data, selector);
-  }
-}
 
-export { Card, CreateCard };
+
