@@ -5,9 +5,9 @@ export default class PopupWithForm extends Popup {
     constructor({ selector, submitCallback }) {
         super(selector);
         this._submitCallback = submitCallback;
-
+        this._form = this._popup.querySelector(".popup__container");
         //obtenemos los datos de todos los inputs que registe en el formulario
-        this._formInputs = Array.from(this._popup.querySelectorAll(".popup__input"));
+        this._formInputs = Array.from(this._form.querySelectorAll(".popup__input"));
 
     }
 
@@ -41,7 +41,7 @@ export default class PopupWithForm extends Popup {
 
     close() {
         super.close();
-        this._popup.querySelector(".popup__container").reset()
+        this._form.reset()
     }
 
     toShow() {
