@@ -4,19 +4,19 @@
  * renderer: responsable de crear y renderizar los datos
  * selector: es el selector css
  */
-export default class Section{
-    constructor({items,renderer},selector){
+export default class Section {
+    constructor({ items, renderer }, selector) {
         this._items = items; // array de datos lo que se muestra en la pagina
         this._renderer = renderer;
         this._selector = document.querySelector(selector);
 
-        
+
     }
 
     /**
      * metodo public para mostrar los elementos iniciales 
      */
-    rendererItems(){       
+    renderer() {
 
         this._items.forEach((element) => {
             this._renderer(element);
@@ -28,8 +28,8 @@ export default class Section{
      * 
      */
 
-    addItem(elment){
+    addItem(elment) {
         this._selector.prepend(elment);
-        
+
     }
 }
