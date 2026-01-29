@@ -3,7 +3,7 @@ import { CreateCard } from "./Card.js";
 
 let newImg = [];
 /**formulario editar profile */
-const openFormButton = document.querySelector(".content");
+/* const openFormButton = document.querySelector(".content");
 const getinfo = openFormButton.querySelector(".profile__info_edit_button");
 const nameProfile = document.querySelector(".profile__name");
 const aboutProfile = document.querySelector(".profile__about");
@@ -12,17 +12,17 @@ const popupProfile = document.querySelector("#popup-profile");
 const formElement = popupProfile.querySelector(".popup__container");
 const closeModalButton = popupProfile.querySelector(".popup__button-cancel");
 const nameInfo = popupProfile.querySelector(".popup__content-name");
-const aboutInfo = popupProfile.querySelector(".popup__content-about");
+const aboutInfo = popupProfile.querySelector(".popup__content-about"); */
 
 /**nuevo lugar  */
-const popupAddCard = document.querySelector("#popup-places");
+/* const popupAddCard = document.querySelector("#popup-places");
 const buttonAddCard = document.querySelector(".profile__info-button-add");
 const closeCancelButtonAddCard = popupAddCard.querySelector(
   "#popup__button-cancelForm"
-);
-const saveButtonAddCard = popupAddCard.querySelector("#create");
+); */
+/* const saveButtonAddCard = popupAddCard.querySelector("#create");
 const namenewImg = popupAddCard.querySelector(".popup__content-name");
-const linknewImg = popupAddCard.querySelector(".popup__content-about");
+const linknewImg = popupAddCard.querySelector(".popup__content-about"); */
 
 
 /**form image */
@@ -57,17 +57,17 @@ const resetValidation = (modal) => {
 
 /* new Card */
 /* open modal Card */
-buttonAddCard.addEventListener("click", () => {
+/* buttonAddCard.addEventListener("click", () => {
   openModal(popupAddCard);
-});
+}); */
 
 /* cerrar modal cuando se presiona x de cerrar */
-closeCancelButtonAddCard.addEventListener("click", () => {
+/* closeCancelButtonAddCard.addEventListener("click", () => {
   closeModalAll("popup-places");
 });
-
+ */
 /* cuando se presiona el boton de guardar un nuevo lugar */
-saveButtonAddCard.addEventListener("click", function (evt) {
+/* saveButtonAddCard.addEventListener("click", function (evt) {
   evt.preventDefault();
   newImg.push({
     name: namenewImg.value,
@@ -82,27 +82,27 @@ saveButtonAddCard.addEventListener("click", function (evt) {
   newImg.length = 0;
   resetValidation(popupAddCard);
   closeModalAll("popup-places");
-});
+}); */
 
 /**cerrar cuando presionamos el boton de scape */
-document.addEventListener("keydown", function (e) {
+/* document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") {
     identifyModalOpen();
   }
 });
-
+ */
 /**modal info User */
-getinfo.addEventListener("click", handleOpenProfilePopup);
+/* getinfo.addEventListener("click", handleOpenProfilePopup); */
 
 /**presionar el boton de guardar nueva info del usuario */
-formElement.addEventListener("submit", handleProfileFormSubmit);
+/* formElement.addEventListener("submit", handleProfileFormSubmit); */
 
 /**cuando se presioan el boton de cancelar */
-closeModalButton.addEventListener("click", () => {
+/* closeModalButton.addEventListener("click", () => {
   closeModalAll("popup-profile");
 });
-
-function handleProfileFormSubmit(evt) {
+ */
+/* function handleProfileFormSubmit(evt) {
   evt.preventDefault();
 
   let nameInput = formElement.querySelector(".popup__content-name");
@@ -113,33 +113,33 @@ function handleProfileFormSubmit(evt) {
 
   closeModalAll("popup-profile");
 }
-
+ */
 /**cambia las clases para cerrar el modal */
-function closeModalAll(idModal) {
+/* function closeModalAll(idModal) {
   document.getElementById(idModal).classList.add("popup_opened");
   document.getElementById(idModal).classList.remove("mOpen");
 }
-
+ */
 /* open modal infoUser*/
-function handleOpenProfilePopup() {
+/* function handleOpenProfilePopup() {
   nameInfo.value = nameProfile.textContent;
   aboutInfo.value = aboutProfile.textContent;
   openModal(popupProfile);
-}
+} */
 
 /** cambia las clases para abrir el modal */
-function openModal(idModalOpen) {
+/* function openModal(idModalOpen) {
   idModalOpen.classList.remove("popup_opened");
   idModalOpen.classList.add("mOpen");
-}
+} */
 /* cerrar el modal click en cualquier parte del documento */
-document.addEventListener("click", function (e) {
+/* document.addEventListener("click", function (e) {
   const popupclassModalClose = e.target.classList;
   const popupidModal = e.target.id;
   if (popupclassModalClose.contains("mOpen")) {
     closeModalAll(popupidModal);
   }
-});
+}); */
 
 /**recorremos todos los elmentos del dom que contengan el id popup y
  * debemos encontrar la clase que contenga laclase mopen

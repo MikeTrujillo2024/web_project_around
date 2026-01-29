@@ -97,7 +97,6 @@ const addNewImage = new PopupWithForm({
 });
 
 addNewImage.setEventListeners();
-/* console.log(addimg); */
 
 addimg.addEventListener("click", () => {
   addNewImage.open();
