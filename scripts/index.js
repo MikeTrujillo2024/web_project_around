@@ -41,7 +41,7 @@ const cardList = new Section(
     }
   }, "#place");
 
-cardList.rendererItems();
+cardList.renderer();
 
 /**
  * inicializamos user info

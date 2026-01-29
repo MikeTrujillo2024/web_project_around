@@ -33,7 +33,7 @@ export default class Popup {
      * agrega un detectoer de eventos clic al icono para cerrar el popup
      */
     setEventListeners() {
-        this._popup.addEventListener("mousedown", (evt) => {
+        this._popup.addEventListener("click", (evt) => {
             if (evt.target.classList.contains("popup__button-cancel") ||
                 evt.target.classList.contains("mOpen")) {
                 this.close();
