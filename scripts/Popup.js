@@ -16,7 +16,7 @@ export default class Popup {
     open() {
         this._popup.classList.remove("popup_opened");
         this._popup.classList.add("mOpen");
-        document.addEventListener("keydown", this._handleEscClose);
+        document.addEventListener("keydown", this._handleEscClose); // cierra cuando se presiona x cerrar
 
     }
 
@@ -40,10 +40,6 @@ export default class Popup {
             }
 
         })
-    }
-
-    checkConstructorProperties() {
-        return this._handleEscClose;
     }
 
 
