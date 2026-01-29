@@ -5,8 +5,11 @@ import { settingsValidator } from "./utils.js";
  * el segudo toma un elemento del formulario a validar
  */
 
-class FormValidator {
+export default class FormValidator {
   constructor(configObj, formElemnt) {
+    if (!formElemnt) {
+      console.error("FormValidator error: El elemento del formulario es null");
+    }
     this._config = configObj;
     this._elment = formElemnt;
 
@@ -102,4 +105,4 @@ class FormValidator {
   }
 }
 
-export { FormValidator };
+

@@ -1,6 +1,6 @@
 import Section from "./Section.js";
 import Card from "./Card.js";
-import { FormValidator } from "./FormValidator.js";
+import FormValidator from "./FormValidator.js";
 import UserInfo from "./UserInfo.js";
 import PopupWithImage from "./PopupWithImage.js";
 import PopupWithForm from "./popupwithform.js";
@@ -15,7 +15,7 @@ import {
 /**
  * constiene todods los fiormularios
  */
-/* const formElements = document.querySelectorAll(settingsValidator.formSelector); */
+const formElements = document.querySelectorAll(settingsValidator.formSelector);
 
 
 /***
@@ -72,6 +72,7 @@ getinfo.addEventListener("click", () => {
 
   document.querySelector("#input__popup_name_Editar").value = name;
   document.querySelector("#input_popup_about").value = about;
+
   profilePopup.open()
 });
 
@@ -102,3 +103,8 @@ addimg.addEventListener("click", () => {
   addNewImage.open();
 })
 
+
+formElements.forEach((formElement) => {
+  const formvalid = new FormValidator(settingsValidator, formElement);
+  formvalid.enableValidation();
+})
